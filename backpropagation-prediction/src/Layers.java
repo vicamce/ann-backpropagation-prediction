@@ -1,4 +1,4 @@
-import javax.xml.soap.Node;
+import function.Function;
 
 /**
  * Created by Amadeus on 24/07/14.
@@ -9,6 +9,7 @@ public class Layers {
     public double[] input;
     public Nodes[] nodes;
     private double net;
+    Function function;
 
     public Layers (int numNodes, int numInputs) {
         nodes = new Nodes[numNodes];
@@ -32,15 +33,9 @@ public class Layers {
                 net = net + input[pWeight] * nodes[pNode].weight[pWeight];
             }
             nodes[pNode].h = net - nodes[pNode].threshold;
-            nodes[pNode].g = functionSigmoid(net);
+            nodes[pNode].g =this.function.calculate(net);
             nodes[pNode].xhi = nodes[pNode].g;
         }
-    }
-
-    private double functionSigmoid(double net) {
-
-        //function sigmoid for perform of the feed forward
-        return 1/(1 + Math.exp(-net));
     }
 
     public double[] getOutputsLayer()
