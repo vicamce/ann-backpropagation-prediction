@@ -35,7 +35,7 @@ public class Layers {
                 net = net + input[pWeight] * nodes[pNode].weight[pWeight];
             }
             nodes[pNode].h = net - nodes[pNode].threshold;
-            nodes[pNode].g =this.function.calculate(net);
+            nodes[pNode].g =function.calculate(net);
             nodes[pNode].xhi = nodes[pNode].g;
         }
     }
