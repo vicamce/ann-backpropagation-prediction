@@ -12,6 +12,8 @@ public class Layers {
     Function function;
 
     public Layers (int numNodes, int numInputs) {
+
+        function = new SigmoidFunction();
         nodes = new Nodes[numNodes];
         //assign all inputs each node in the layer
         for (int i = 0; i < numNodes; i++) {
